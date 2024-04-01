@@ -10,6 +10,11 @@ from model import *
 from train_and_test import *
 
 
+# This file contains functions to analyze the datasets such as:
+# visualize mis-classifications
+# calculate the average number of mis-classified samples.
+# calculate the average precision and recall of the model.
+# visualize the feature maps of the model.
 def data_analysis():
     # Analyze the datasets
     train_num_images, train_image_avg_shapes, train_class_distribution = analyze_dataset(train_dataset)
