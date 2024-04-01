@@ -1,0 +1,155 @@
+C:\Users\USER\PycharmProjects\Image_Classification_Task\venv\Scripts\python.exe C:\Users\USER\PycharmProjects\Image_Classification_Task\analysis.py
+Training the model...
+Epoch 1/10, Loss: 0.5, Accuracy: 80.05
+Epoch 2/10, Loss: 0.35, Accuracy: 95.99
+Epoch 3/10, Loss: 0.33, Accuracy: 98.02
+Epoch 4/10, Loss: 0.32, Accuracy: 98.7
+Epoch 5/10, Loss: 0.32, Accuracy: 99.12
+Epoch 6/10, Loss: 0.32, Accuracy: 99.12
+Epoch 7/10, Loss: 0.32, Accuracy: 99.16
+Epoch 8/10, Loss: 0.32, Accuracy: 99.16
+Epoch 9/10, Loss: 0.32, Accuracy: 99.34
+Epoch 10/10, Loss: 0.32, Accuracy: 99.4
+Testing the model...
+Test accuracy: 98.17
+Precision: 0.7717391304347826
+Recall: 0.1504237288135593
+Training the model...
+Epoch 1/10, Loss: 0.32, Accuracy: 99.32
+Epoch 2/10, Loss: 0.32, Accuracy: 99.23
+Epoch 3/10, Loss: 0.31, Accuracy: 99.49
+Epoch 4/10, Loss: 0.31, Accuracy: 99.5
+Epoch 5/10, Loss: 0.31, Accuracy: 99.37
+Epoch 6/10, Loss: 0.32, Accuracy: 99.27
+Epoch 7/10, Loss: 0.31, Accuracy: 99.51
+Epoch 8/10, Loss: 0.32, Accuracy: 98.93
+Epoch 9/10, Loss: 0.32, Accuracy: 98.9
+Epoch 10/10, Loss: 0.31, Accuracy: 99.5
+Testing the model...
+Test accuracy: 98.16
+Precision: 0.7857142857142857
+Recall: 0.13983050847457626
+Training the model...
+Epoch 1/10, Loss: 0.31, Accuracy: 99.54
+Epoch 2/10, Loss: 0.31, Accuracy: 99.54
+Epoch 3/10, Loss: 0.31, Accuracy: 99.54
+Epoch 4/10, Loss: 0.31, Accuracy: 99.54
+Epoch 5/10, Loss: 0.31, Accuracy: 99.54
+Epoch 6/10, Loss: 0.31, Accuracy: 99.54
+Epoch 7/10, Loss: 0.31, Accuracy: 99.54
+Epoch 8/10, Loss: 0.31, Accuracy: 99.54
+Epoch 9/10, Loss: 0.31, Accuracy: 99.54
+Epoch 10/10, Loss: 0.31, Accuracy: 99.54
+Testing the model...
+Test accuracy: 98.1
+Precision: 0.6187050359712231
+Recall: 0.18220338983050846
+Training the model...
+Epoch 1/10, Loss: 0.31, Accuracy: 99.54
+Epoch 2/10, Loss: 0.31, Accuracy: 99.54
+Epoch 3/10, Loss: 0.31, Accuracy: 99.54
+Epoch 4/10, Loss: 0.31, Accuracy: 99.54
+Epoch 5/10, Loss: 0.31, Accuracy: 99.54
+Epoch 6/10, Loss: 0.31, Accuracy: 99.54
+Epoch 7/10, Loss: 0.31, Accuracy: 99.54
+Epoch 8/10, Loss: 0.31, Accuracy: 99.54
+Epoch 9/10, Loss: 0.31, Accuracy: 99.54
+Epoch 10/10, Loss: 0.31, Accuracy: 99.54
+Testing the model...
+Test accuracy: 98.11
+Precision: 0.6223776223776224
+Recall: 0.1885593220338983
+Training the model...
+Epoch 1/10, Loss: 0.31, Accuracy: 99.54
+Epoch 2/10, Loss: 0.31, Accuracy: 99.54
+Epoch 3/10, Loss: 0.31, Accuracy: 99.54
+Epoch 4/10, Loss: 0.31, Accuracy: 99.54
+Epoch 5/10, Loss: 0.31, Accuracy: 99.54
+Epoch 6/10, Loss: 0.31, Accuracy: 99.54
+Epoch 7/10, Loss: 0.31, Accuracy: 99.54
+Epoch 8/10, Loss: 0.31, Accuracy: 99.54
+Epoch 9/10, Loss: 0.31, Accuracy: 99.54
+Epoch 10/10, Loss: 0.31, Accuracy: 99.54
+Testing the model...
+Test accuracy: 98.1
+Precision: 0.6164383561643836
+Recall: 0.1906779661016949
+Training the model...
+Epoch 1/10, Loss: 0.31, Accuracy: 99.54
+Epoch 2/10, Loss: 0.31, Accuracy: 99.54
+Epoch 3/10, Loss: 0.31, Accuracy: 99.54
+Epoch 4/10, Loss: 0.31, Accuracy: 99.54
+Epoch 5/10, Loss: 0.31, Accuracy: 99.54
+Epoch 6/10, Loss: 0.31, Accuracy: 99.54
+Epoch 7/10, Loss: 0.31, Accuracy: 99.54
+Epoch 8/10, Loss: 0.31, Accuracy: 99.54
+Epoch 9/10, Loss: 0.31, Accuracy: 99.54
+Epoch 10/10, Loss: 0.31, Accuracy: 99.54
+Testing the model...
+Test accuracy: 98.1
+Precision: 0.6180555555555556
+Recall: 0.1885593220338983
+Training the model...
+Epoch 1/10, Loss: 0.31, Accuracy: 99.54
+Epoch 2/10, Loss: 0.31, Accuracy: 99.54
+Epoch 3/10, Loss: 0.31, Accuracy: 99.54
+Epoch 4/10, Loss: 0.31, Accuracy: 99.54
+Epoch 5/10, Loss: 0.32, Accuracy: 99.29
+Epoch 6/10, Loss: 0.32, Accuracy: 98.4
+Epoch 7/10, Loss: 0.32, Accuracy: 98.74
+Epoch 8/10, Loss: 0.32, Accuracy: 99.02
+Epoch 9/10, Loss: 0.32, Accuracy: 99.27
+Epoch 10/10, Loss: 0.32, Accuracy: 99.27
+Testing the model...
+Test accuracy: 98.09
+Precision: 0.6666666666666666
+Recall: 0.13135593220338984
+Training the model...
+Epoch 1/10, Loss: 0.32, Accuracy: 99.29
+Epoch 2/10, Loss: 0.32, Accuracy: 99.09
+Epoch 3/10, Loss: 0.31, Accuracy: 99.47
+Epoch 4/10, Loss: 0.31, Accuracy: 99.54
+Epoch 5/10, Loss: 0.31, Accuracy: 99.56
+Epoch 6/10, Loss: 0.31, Accuracy: 99.56
+Epoch 7/10, Loss: 0.31, Accuracy: 99.56
+Epoch 8/10, Loss: 0.31, Accuracy: 99.56
+Epoch 9/10, Loss: 0.31, Accuracy: 99.56
+Epoch 10/10, Loss: 0.31, Accuracy: 99.56
+Testing the model...
+Test accuracy: 98.19
+Precision: 0.6608187134502924
+Recall: 0.23940677966101695
+Training the model...
+Epoch 1/10, Loss: 0.31, Accuracy: 99.56
+Epoch 2/10, Loss: 0.31, Accuracy: 99.56
+Epoch 3/10, Loss: 0.31, Accuracy: 99.56
+Epoch 4/10, Loss: 0.31, Accuracy: 99.56
+Epoch 5/10, Loss: 0.31, Accuracy: 99.56
+Epoch 6/10, Loss: 0.31, Accuracy: 99.56
+Epoch 7/10, Loss: 0.31, Accuracy: 99.56
+Epoch 8/10, Loss: 0.31, Accuracy: 99.56
+Epoch 9/10, Loss: 0.31, Accuracy: 99.56
+Epoch 10/10, Loss: 0.31, Accuracy: 99.56
+Testing the model...
+Test accuracy: 98.19
+Precision: 0.6608187134502924
+Recall: 0.23940677966101695
+Training the model...
+Epoch 1/10, Loss: 0.31, Accuracy: 99.56
+Epoch 2/10, Loss: 0.31, Accuracy: 99.56
+Epoch 3/10, Loss: 0.31, Accuracy: 99.56
+Epoch 4/10, Loss: 0.31, Accuracy: 99.56
+Epoch 5/10, Loss: 0.31, Accuracy: 99.56
+Epoch 6/10, Loss: 0.31, Accuracy: 99.56
+Epoch 7/10, Loss: 0.31, Accuracy: 99.56
+Epoch 8/10, Loss: 0.31, Accuracy: 99.56
+Epoch 9/10, Loss: 0.31, Accuracy: 99.56
+Epoch 10/10, Loss: 0.31, Accuracy: 99.56
+Testing the model...
+Test accuracy: 98.19
+Precision: 0.6666666666666666
+Recall: 0.23728813559322035
+Average Precision: 0.6688000746451772
+Average Recall: 0.18877118644067797
+
+Process finished with exit code 0
