@@ -17,6 +17,6 @@ The project utilizes convolutional neural networks (CNNs) for training and evalu
 
 ## Usage
 ### Hyperparameter Tuning
-Run the `cnn_hyperparameter_tuning.py
+Run the `cnn_hyperparameter_tuning.py to create a new sweep inside the wandb project.
 ### Analysis
-Run the `analysis.py (This script contains multiple functions to choose from)
+To perform analysis on the trained model Run the `analysis.py (This script contains multiple functions to choose from)
