@@ -16,7 +16,13 @@ The project utilizes convolutional neural networks (CNNs) for training and evalu
 - `train_and_test.py`: Module containing functions for training and testing the CNN model.
 
 ## Usage
+
 ### Hyperparameter Tuning
 Run the `cnn_hyperparameter_tuning.py to create a new sweep inside the wandb project.
 ### Analysis
 To perform analysis on the trained model Run the `analysis.py (This script contains multiple functions to choose from)
+
+## Face and Non-face Database
+
+This repository also contains a dataset of faces and non-faces, originally curated by the Center for Biological and Computational Learning at MIT.  
+For more information about the dataset, please refer to <link-to-dataset-readme> http://www.ai.mit.edu/projects/cbcl.
