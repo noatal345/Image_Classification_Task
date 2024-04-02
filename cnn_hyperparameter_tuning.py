@@ -1,6 +1,7 @@
 import wandb
 from main import img_classifier
 
+# This is the wandb configuration file that will be used to run the sweep
 wandb.login()
 
 
@@ -10,6 +11,7 @@ def main():
     wandb.log({"Test accuracy": test_acc})
 
 
+# Define the sweep configuration
 sweep_config = {
     'method': 'grid',
     'metric': {'goal': 'maximize', 'name': 'Test accuracy'},

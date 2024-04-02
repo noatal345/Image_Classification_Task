@@ -4,6 +4,7 @@ import os
 import numpy as np
 
 
+# This is the dataset class that will be used to load the images
 class FaceDataset(Dataset):
     def __init__(self, data_path, transform=None, shape=(19, 19)):
         self.data = data_path
@@ -13,6 +14,9 @@ class FaceDataset(Dataset):
         self.load_data(shape)
 
     def load_data(self, shape=(19, 19)):
+        # This function loads the images and labels from the faces directory
+        # The images can be resized to the specified shape
+
         for folder_name in os.listdir(self.data):
             if folder_name == 'face':
                 label = 1
@@ -63,6 +67,7 @@ def analyze_dataset(dataset):
     num_images = len(dataset)
     image_shapes = [image[0].shape for image in dataset]
     images_avg_shape = np.mean(image_shapes, axis=0)
+    # calculate the class distribution of the dataset
     class_distribution = {0: 0, 1: 0}
     for _, label in dataset:
         class_distribution[label] += 1

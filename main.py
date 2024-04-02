@@ -6,6 +6,8 @@ from model import *
 from train_and_test import *
 
 
+# This function trains the model and returns the test accuracy
+# The function is called by the wandb agent
 def img_classifier(config):
     transform = transforms.Compose([
         transforms.ToTensor(),
@@ -24,10 +26,11 @@ def img_classifier(config):
     # Define the model
     model = CNN()
 
-    # Define the loss function and optimizer
+    # Define the loss function, optimizer and learning rate
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.Adam(model.parameters(), lr=config.lr)
 
+    # Train and test the model
     model = train(model, train_loader, criterion, optimizer, num_epochs=config.epoch, batch_size=batch_size)
     test_accuracy = test(model, test_loader, criterion, batch_size=batch_size)
     return test_accuracy

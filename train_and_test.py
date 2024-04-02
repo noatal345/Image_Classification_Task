@@ -2,6 +2,7 @@ import numpy as np
 import torch
 
 
+# This file contains functions to train and test the model
 def train(model, train_loader, criterion, optimizer, num_epochs, batch_size):
     print("Training the model...")
     model.train()
@@ -31,6 +32,7 @@ def train(model, train_loader, criterion, optimizer, num_epochs, batch_size):
     return model
 
 
+# Train and test loss analysis
 def train_and_test_analysis(model, train_loader, test_loader, criterion, optimizer, num_epochs, batch_size):
     print("Training the model...")
     model.train()
@@ -71,6 +73,28 @@ def train_and_test_analysis(model, train_loader, test_loader, criterion, optimiz
     return train_losses, test_losses
 
 
+def test(model, test_loader, criterion, batch_size):
+    print("Testing the model...")
+    model.eval()
+    test_loss = 0.0
+    correct = 0
+    total = 0
+
+    for x_img, y_label in test_loader:
+        y_pred = model(x_img)
+        loss = criterion(y_pred, y_label)
+        test_loss += loss.item()
+
+        prediction = y_pred.argmax(dim=1)
+        correct += (prediction == y_label).sum().item()
+        total += batch_size
+
+    test_acc = round(100 * correct/total, 2)
+    print("Test Loss:", round(test_loss/len(test_loader), 2))
+    print("Test Accuracy:", test_acc)
+    return test_acc
+
+
 def test_analysis(model, test_loader, criterion, batch_size):
     print("Testing the model...")
     model.eval()
@@ -94,28 +118,6 @@ def test_analysis(model, test_loader, criterion, batch_size):
     print("Test Accuracy:", round(test_acc, 2))
 
     return test_loss, test_acc
-
-
-def test(model, test_loader, criterion, batch_size):
-    print("Testing the model...")
-    model.eval()
-    test_loss = 0.0
-    correct = 0
-    total = 0
-
-    for x_img, y_label in test_loader:
-        y_pred = model(x_img)
-        loss = criterion(y_pred, y_label)
-        test_loss += loss.item()
-
-        prediction = y_pred.argmax(dim=1)
-        correct += (prediction == y_label).sum().item()
-        total += batch_size
-
-    test_acc = round(100 * correct/total, 2)
-    print("Test Loss:", round(test_loss/len(test_loader), 2))
-    print("Test Accuracy:", test_acc)
-    return test_acc
 
 
 def test_misclassification(model, test_loader, criterion, batch_size):
@@ -183,7 +185,7 @@ def calculate_precision(predictions, labels):
     false_positives = ((predictions == 1) & (labels == 0)).sum()
 
     if true_positives + false_positives == 0:
-        return 0  # Prevent division by zero
+        return 0
     else:
         return true_positives / (true_positives + false_positives)
 
@@ -193,6 +195,6 @@ def calculate_recall(predictions, labels):
     false_negatives = ((predictions == 0) & (labels == 1)).sum()
 
     if true_positives + false_negatives == 0:
-        return 0  # Prevent division by zero
+        return 0
     else:
         return true_positives / (true_positives + false_negatives)
