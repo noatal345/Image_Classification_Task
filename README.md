@@ -24,5 +24,4 @@ To perform analysis on the trained model Run the `analysis.py (This script conta
 
 ## Face and Non-face Database
 
-This repository also contains a dataset of faces and non-faces, originally curated by the Center for Biological and Computational Learning at MIT.  
-For more information about the dataset, please refer to <link-to-dataset-readme> http://www.ai.mit.edu/projects/cbcl.
+This repository also contains a dataset of faces and non-faces, originally curated by the Center for Biological and Computational Learning at MIT.
