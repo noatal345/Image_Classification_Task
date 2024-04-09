@@ -181,6 +181,8 @@ def test_precision_recall(model, test_loader, criterion, batch_size):
 
 
 def calculate_precision(predictions, labels):
+    print("Calculating precision...")
+    # index-wise comparison of predictions and labels
     true_positives = ((predictions == 1) & (labels == 1)).sum()
     false_positives = ((predictions == 1) & (labels == 0)).sum()
 
@@ -191,6 +193,7 @@ def calculate_precision(predictions, labels):
 
 
 def calculate_recall(predictions, labels):
+    print("Calculating recall...")
     true_positives = ((predictions == 1) & (labels == 1)).sum()
     false_negatives = ((predictions == 0) & (labels == 1)).sum()
 

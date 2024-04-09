@@ -42,31 +42,36 @@ def mis_classification(misclassified_samples):
 def avg_misclassified(model, train_loader, test_loader, criterion, optimizer, batch_size=32):
     print("Calculating the average number of mis-classified samples...")
     # calculate the average number of mis-classified samples for both classes over 10 runs
-    total_face = []
-    total_non_face = []
+    total_false_positive = []
+    total_false_negative = []
 
     for i in range(10):
         # train the model each time
-        model = train(model, train_loader, criterion, optimizer, num_epochs=10, batch_size=batch_size)
+        model = train(model, train_loader, criterion, optimizer, num_epochs=20, batch_size=batch_size)
 
         misclassified_samples = test_misclassification(model, test_loader, criterion, batch_size)
         random.shuffle(misclassified_samples)
         # sample[1] is the true label, sample[2] is the predicted label
-        non_face = 0
-        face = 0
+        false_negative = 0
+        false_positive = 0
         for sample in misclassified_samples:
+            # non-face mis-classified as face
             if sample[1] == 0 and sample[2] == 1:
-                non_face += 1
+                false_positive += 1
+            # face mis-classified as non-face
             elif sample[1] == 1 and sample[2] == 0:
-                face += 1
-        # print(f"Non-face mis-classified as face: {non_face}")
-        # print(f"Face mis-classified as non-face: {face}")
-        total_face.append(face)
-        total_non_face.append(non_face)
+                false_negative += 1
+
+        total_false_positive.append(false_positive)
+        total_false_negative.append(false_negative)
         # mis_classification(misclassified_samples)
 
-    print("Average number of mis-classified samples non-face:", sum(total_non_face)/len(total_non_face))
-    print("Average number of mis-classified samples face:", sum(total_face)/len(total_face))
+    print("Average number of mis-classified samples:")
+    print("Classified as non-face, true label face:", sum(total_false_negative)/len(total_false_negative), "samples")
+    print("Classified as face, true label non-face:", sum(total_false_positive)/len(total_false_positive), "samples")
+    print("the number of mis-classified samples:")
+    print("Classified as non-face, true label face:", total_false_negative)
+    print("Classified as face, true label non-face:", total_false_positive)
 
 
 def avg_pr(model, train_loader, test_loader, criterion, optimizer, batch_size=32):
@@ -75,16 +80,17 @@ def avg_pr(model, train_loader, test_loader, criterion, optimizer, batch_size=32
     total_precision = []
     total_recall = []
     for i in range(10):
-        model = train(model, train_loader, criterion, optimizer, num_epochs=10, batch_size=batch_size)
+        model = train(model, train_loader, criterion, optimizer, num_epochs=20, batch_size=batch_size)
         test_acc, precision, recall = test_precision_recall(model, test_loader, criterion, batch_size)
         total_precision.append(precision)
         total_recall.append(recall)
         print("Test accuracy:", test_acc)
-        # print("Precision:", precision)
-        # print("Recall:", recall)
 
+    print("Average Precision and Recall over 10 runs:")
     print("Average Precision:", sum(total_precision) / len(total_precision))
     print("Average Recall:", sum(total_recall) / len(total_recall))
+    print("Total Precision:", total_precision)
+    print("Total Recall:", total_recall)
 
 
 def plot_loss(train_losses, test_losses):
@@ -99,7 +105,6 @@ def plot_loss(train_losses, test_losses):
 
 
 def visualize_feature_maps(model, input_image_tensor):
-
     model.eval()
     print("Visualizing feature maps...")
     # Forward pass the input image through the model
@@ -129,6 +134,23 @@ def visualize_feature_maps(model, input_image_tensor):
                 plt.show()
 
 
+def even_distribution_data(train_dataset, size=2429):
+    # Get the indices of the face and non-face samples
+    face_indices = [i for i in range(len(train_dataset)) if train_dataset[i][1] == 1]
+    non_face_indices = [i for i in range(len(train_dataset)) if train_dataset[i][1] == 0]
+
+    # Randomly choose 2,429 non-face samples
+    random_non_face_indices = random.sample(non_face_indices, size)
+
+    # Combine the face and non-face indices
+    balanced_indices = face_indices + random_non_face_indices
+
+    # Create a new dataset with the balanced indices
+    balanced_dataset = torch.utils.data.Subset(train_dataset, balanced_indices)
+
+    return balanced_dataset
+
+
 # init program without wandb
 transform = transforms.Compose([
     transforms.ToTensor(),
@@ -139,6 +161,9 @@ transform = transforms.Compose([
 train_dataset = FaceDataset(data_path='faces/face.train/train', transform=transform, shape=(19, 19))
 test_dataset = FaceDataset(data_path='faces/face.test/test', transform=transform, shape=(19, 19))
 
+# use this code to play with the dataset class distribution
+# train_dataset = even_distribution_data(train_dataset)
+# test_dataset = even_distribution_data(test_dataset)
 
 batch_size = 32
 
@@ -155,7 +180,7 @@ optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 
 # train the model
 model = train(model, train_loader, criterion, optimizer, num_epochs=10, batch_size=batch_size)
-
+test_acc = test(model, test_loader, criterion, batch_size=batch_size)
 
 # In This Part of the code you can choose what you want to analyze and put the rest in comments
 
@@ -163,14 +188,14 @@ model = train(model, train_loader, criterion, optimizer, num_epochs=10, batch_si
 # train_losses, test_losses = train_and_test_analysis(model, train_loader, test_loader, criterion, optimizer, 30, 32)
 # plot_loss(train_losses, test_losses)
 #
-# # Check for the avg mis-classifications
+# Check for the avg mis-classifications
 # avg_misclassified(model, train_loader, test_loader, criterion, optimizer, batch_size)
 
 # Visualize the feature maps of the convolutional layers on the first image in the test dataset
 # input_image, _ = test_dataset[0]
 # visualize_feature_maps(model, input_image)
-#
-#
+
+
 # # Check for the avg precision and recall
 # avg_pr(model, train_loader, test_loader, criterion, optimizer, batch_size)
 

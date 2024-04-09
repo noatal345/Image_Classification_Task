@@ -41,36 +41,36 @@ class FaceDataset(Dataset):
 
         return image, label
 
-
-def calc_images_avg_size(path):
-    # calculate the average size of the images in the dataset
-    total_width = 0
-    total_height = 0
-    total_images = 0
-    for folder_name in os.listdir('faces/face.'+path):
-        for file in os.listdir(os.path.join('faces/face.'+path, folder_name)):
-            image = Image.open(os.path.join('faces/face.'+path, folder_name, file))
-            width, height = image.size
-            total_width += width
-            total_height += height
-            total_images += 1
-
-    avg_width = total_width / total_images
-    avg_height = total_height / total_images
-    print("Average Width:", avg_width)
-    print("Average Height:", avg_height)
-
-
-def analyze_dataset(dataset):
-    # this function should return:
-    # the number of images, the average shapes of the images, and the class distribution of the dataset
-    num_images = len(dataset)
-    image_shapes = [image[0].shape for image in dataset]
-    images_avg_shape = np.mean(image_shapes, axis=0)
-    # calculate the class distribution of the dataset
-    class_distribution = {0: 0, 1: 0}
-    for _, label in dataset:
-        class_distribution[label] += 1
-    class_distribution = {"non-face": class_distribution[0], "face": class_distribution[1]}
-    return num_images, images_avg_shape, class_distribution
-
+#
+# def calc_images_avg_size(path):
+#     # calculate the average size of the images in the dataset
+#     total_width = 0
+#     total_height = 0
+#     total_images = 0
+#     for folder_name in os.listdir('faces/face.'+path):
+#         for file in os.listdir(os.path.join('faces/face.'+path, folder_name)):
+#             image = Image.open(os.path.join('faces/face.'+path, folder_name, file))
+#             width, height = image.size
+#             total_width += width
+#             total_height += height
+#             total_images += 1
+#
+#     avg_width = total_width / total_images
+#     avg_height = total_height / total_images
+#     print("Average Width:", avg_width)
+#     print("Average Height:", avg_height)
+#
+#
+# def analyze_dataset(dataset):
+#     # this function should return:
+#     # the number of images, the average shapes of the images, and the class distribution of the dataset
+#     num_images = len(dataset)
+#     image_shapes = [image[0].shape for image in dataset]
+#     images_avg_shape = np.mean(image_shapes, axis=0)
+#     # calculate the class distribution of the dataset
+#     class_distribution = {0: 0, 1: 0}
+#     for _, label in dataset:
+#         class_distribution[label] += 1
+#     class_distribution = {"non-face": class_distribution[0], "face": class_distribution[1]}
+#     return num_images, images_avg_shape, class_distribution
+#
